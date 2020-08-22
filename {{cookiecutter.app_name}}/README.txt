@@ -6,7 +6,7 @@ Getting Started
 
 - Change directory into your newly created project.
 
-    cd {{ cookiecutter.repo_name }}
+    cd {{ cookiecutter.app_name }}
 
 - Create a Python virtual environment.
 
@@ -32,7 +32,7 @@ Getting Started
 
 - Load default data into the database using a script.
 
-    env/bin/initialize_{{ cookiecutter.repo_name }}_db development.ini
+    env/bin/initialize_{{ cookiecutter.app_name }}_db development.ini
 
 - Run your project's tests.
 

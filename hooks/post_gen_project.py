@@ -13,7 +13,7 @@ def main():
 def clean_unused_template_settings():
     selected_lang = '{{ cookiecutter.template_language }}'
     templates = os.path.join(
-        WORKING, '{{cookiecutter.repo_name}}', 'templates')
+        WORKING, '{{cookiecutter.app_name}}', 'templates')
 
     if selected_lang == 'chameleon':
         extension = '.pt'
@@ -51,7 +51,7 @@ def display_actions_message():
         pserve_cmd=os.path.join(venv_bin, 'pserve'),
         alembic_cmd=os.path.join(venv_bin, 'alembic'),
         init_cmd=os.path.join(
-            venv_bin, 'initialize_{{ cookiecutter.repo_name }}_db'),
+            venv_bin, 'initialize_{{ cookiecutter.app_name }}_db'),
     )
     msg = dedent(
         """
@@ -64,7 +64,7 @@ def display_actions_message():
         %(separator)s
 
         Change directory into your newly created project.
-            cd {{ cookiecutter.repo_name }}
+            cd {{ cookiecutter.app_name }}
 
         Create a Python virtual environment.
             %(venv_cmd)s %(venv)s
