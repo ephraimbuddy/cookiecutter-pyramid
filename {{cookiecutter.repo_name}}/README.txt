@@ -20,7 +20,6 @@ Getting Started
 
     env/bin/pip install -e ".[testing]"
 
-{% if cookiecutter.backend == 'sqlalchemy' -%}
 - Initialize and upgrade the database using Alembic.
 
     - Generate your first revision.
@@ -35,7 +34,6 @@ Getting Started
 
     env/bin/initialize_{{ cookiecutter.repo_name }}_db development.ini
 
-{% endif -%}
 - Run your project's tests.
 
     env/bin/pytest

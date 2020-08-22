@@ -25,7 +25,9 @@ def parse_args(argv):
     return parser.parse_args(argv[1:])
 
 
-def main(argv=sys.argv):
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv
     args = parse_args(argv)
     setup_logging(args.config_uri)
     env = bootstrap(args.config_uri)
