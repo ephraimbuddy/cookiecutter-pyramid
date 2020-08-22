@@ -9,9 +9,9 @@ import pytest
 import transaction
 import webtest
 
-from {{ cookiecutter.repo_name }} import main
-from {{ cookiecutter.repo_name }} import models
-from {{ cookiecutter.repo_name }}.models.meta import Base
+from {{ cookiecutter.app_name }} import main
+from {{ cookiecutter.app_name }} import models
+from {{ cookiecutter.app_name }}.models.meta import Base
 
 
 def pytest_addoption(parser):

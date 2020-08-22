@@ -29,7 +29,7 @@ tests_require = [
 ]
 
 setup(
-    name='{{ cookiecutter.repo_name }}',
+    name='{{ cookiecutter.app_name }}',
     version='0.0',
     description='{{ cookiecutter.project_name }}',
     long_description=README + '\n\n' + CHANGES,
@@ -52,10 +52,10 @@ setup(
     install_requires=requires,
     entry_points={
         'paste.app_factory': [
-            'main = {{ cookiecutter.repo_name }}:main',
+            'main = {{ cookiecutter.app_name }}:main',
         ],
         'console_scripts': [
-            'initialize_{{ cookiecutter.repo_name }}_db={{ cookiecutter.repo_name }}.scripts.initialize_db:main',
+            'initialize_{{ cookiecutter.app_name }}_db={{ cookiecutter.app_name }}.scripts.initialize_db:main',
         ],
     },
 )

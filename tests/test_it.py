@@ -60,7 +60,7 @@ def test_project(cookies, venv, capfd, template):
     result = cookies.bake(extra_context={
         'project_name': 'Test Project',
         'template_language': template,
-        'repo_name': 'myapp',
+        'app_name': 'myapp',
     })
 
     assert result.exit_code == 0
@@ -116,6 +116,6 @@ def test_project(cookies, venv, capfd, template):
 
 def test_it_invalid_module_name(cookies, venv, capfd):
     result = cookies.bake(extra_context={
-        'repo_name': '0invalid',
+        'app_name': '0invalid',
     })
     assert result.exit_code == -1

@@ -5,7 +5,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from .. import models
 
 
-@view_config(route_name='home', renderer='{{ cookiecutter.repo_name }}:templates/mytemplate.{{ "pt" if "chameleon" == cookiecutter.template_language else cookiecutter.template_language }}')
+@view_config(route_name='home', renderer='{{ cookiecutter.app_name }}:templates/mytemplate.{{ "pt" if "chameleon" == cookiecutter.template_language else cookiecutter.template_language }}')
 def my_view(request):
     try:
         query = request.dbsession.query(models.MyModel)

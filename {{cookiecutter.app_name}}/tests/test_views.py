@@ -1,6 +1,6 @@
-from {{ cookiecutter.repo_name }} import models
-from {{ cookiecutter.repo_name }}.views.default import my_view
-from {{ cookiecutter.repo_name }}.views.notfound import notfound_view
+from {{ cookiecutter.app_name }} import models
+from {{ cookiecutter.app_name }}.views.default import my_view
+from {{ cookiecutter.app_name }}.views.notfound import notfound_view
 
 
 def test_my_view_failure(app_request):
