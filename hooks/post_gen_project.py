@@ -26,9 +26,10 @@ def delete_other_ext(directory, extension):
     """
     Removes all files not ending with the extension.
     """
-    for template_file in os.listdir(directory):
-        if not template_file.endswith(extension):
-            os.unlink(os.path.join(directory, template_file))
+    for (root, dirs, files) in os.walk(directory, topdown=True):
+        for template_file in files:
+            if not template_file.endswith(extension):
+                os.unlink(os.path.join(root, template_file))
 
 
 def display_actions_message():

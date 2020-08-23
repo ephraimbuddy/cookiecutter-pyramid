@@ -6,7 +6,7 @@ from {{cookiecutter.app_name}}.models.user import User
 
 
 @view_config(route_name='home', renderer='{{ cookiecutter.app_name }}:templates/mytemplate.{{ "pt" if "chameleon" == cookiecutter.template_language else cookiecutter.template_language }}')
-def index(request):
+def home(request):
     try:
         user = request.dbsession.query(User).one()
     except SQLAlchemyError:

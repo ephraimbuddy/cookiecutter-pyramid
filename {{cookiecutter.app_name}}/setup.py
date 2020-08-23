@@ -22,7 +22,9 @@ requires = [
     'zope.sqlalchemy',
     'pyramid_nacl_session',
     'bcrypt',
-    'passlib'
+    'passlib',
+    'wtforms',
+    'email_validator'
 ]
 
 tests_require = [

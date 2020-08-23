@@ -14,6 +14,9 @@ project_files = [
     '/myapp/alembic/env.py',
     '/myapp/alembic/script.py.mako',
     '/myapp/alembic/versions/README.txt',
+    '/myapp/forms/__init__.py',
+    '/myapp/forms/user/__init__.py',
+    '/myapp/forms/user/auth.py',
     '/myapp/models/__init__.py',
     '/myapp/models/meta.py',
     '/myapp/models/user.py',
@@ -28,16 +31,25 @@ project_files = [
     '/myapp/templates/404.template_extension',
     '/myapp/templates/layout.template_extension',
     '/myapp/templates/mytemplate.template_extension',
+    '/myapp/templates/user/login.template_extension',
+    '/myapp/templates/user/registration.template_extension',
+    '/myapp/utils/__init__.py',
+    '/myapp/utils/util.py',
     '/myapp/views/__init__.py',
     '/myapp/views/default.py',
     '/myapp/views/notfound.py',
+    '/myapp/views/user/__init__.py',
+    '/myapp/views/user/auth.py',
     '/tests/__init__.py',
     '/tests/conftest.py',
     '/tests/models/__init__.py',
     '/tests/models/test_user.py',
     '/tests/views/__init__.py',
+    '/tests/views/test_default.py',
     '/tests/views/test_functional.py',
-    '/tests/views/test_views.py',
+    '/tests/views/test_notfound.py',
+    '/tests/views/user/__init__.py',
+    '/tests/views/user/test_auth.py',
     'CHANGES.txt',
     'MANIFEST.in',
     'README.txt',
@@ -89,7 +101,7 @@ def test_project(cookies, venv, capfd, template):
     for idx, sqlalchemy_file in enumerate(project_files):
         if 'templates' in sqlalchemy_file:
             project_files[idx] = project_files[idx].split('.')[
-                0] + '.' + template
+                                     0] + '.' + template
 
     assert project_files == files
 
