@@ -19,7 +19,10 @@ requires = [
     'pyramid_tm',
     'SQLAlchemy',
     'transaction',
-    'zope.sqlalchemy'
+    'zope.sqlalchemy',
+    'pyramid_nacl_session',
+    'bcrypt',
+    'passlib'
 ]
 
 tests_require = [

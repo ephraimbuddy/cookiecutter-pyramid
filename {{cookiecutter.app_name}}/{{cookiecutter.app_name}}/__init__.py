@@ -8,5 +8,6 @@ def main(global_config, **settings):
         config.include('pyramid_{{ cookiecutter.template_language }}')
         config.include('.routes')
         config.include('.models')
+        config.include('.security')
         config.scan()
     return config.make_wsgi_app()
