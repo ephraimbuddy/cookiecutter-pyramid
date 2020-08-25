@@ -44,3 +44,4 @@ def includeme(config):
     config.set_authorization_policy(authz_policy)
     config.set_default_csrf_options(require_csrf=True)
     config.set_root_factory(RootFactory)
+    

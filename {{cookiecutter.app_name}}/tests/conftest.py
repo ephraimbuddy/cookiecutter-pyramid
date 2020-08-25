@@ -75,7 +75,6 @@ def testapp(app, tm, dbsession):
         'tm.active': True,
         'tm.manager': tm,
         'app.dbsession': dbsession,
-        "REMOTE_ADDR": "10.10.2.3"
     })
 
     return testapp
