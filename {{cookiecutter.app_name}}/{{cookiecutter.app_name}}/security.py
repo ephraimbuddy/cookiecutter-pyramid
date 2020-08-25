@@ -4,6 +4,7 @@ from pyramid.security import ALL_PERMISSIONS, Allow, Everyone, Authenticated
 from {{cookiecutter.app_name}}.models.user import User, RootFactory
 
 
+
 class AuthenticationPolicy(AuthTktAuthenticationPolicy):
     """ AuthenticationPolicy to avoid blindly trusting the value in cookie"""
     def authenticated_userid(self, request):
@@ -41,4 +42,5 @@ def includeme(config):
     config.add_request_method(get_user, 'user', reify=True)
     config.set_authentication_policy(authn_policy)
     config.set_authorization_policy(authz_policy)
+    config.set_default_csrf_options(require_csrf=True)
     config.set_root_factory(RootFactory)

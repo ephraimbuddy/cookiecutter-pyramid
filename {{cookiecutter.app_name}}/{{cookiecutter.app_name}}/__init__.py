@@ -7,7 +7,6 @@ def main(global_config, **settings):
     with Configurator(settings=settings) as config:
         config.include('pyramid_{{ cookiecutter.template_language }}')
         config.include('.routes')
-        config.include('.views.user', route_prefix='user')
         config.include('.models')
         config.include('.security')
         config.scan()

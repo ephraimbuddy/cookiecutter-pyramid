@@ -96,6 +96,11 @@ class User(Base):
         user = dbsession.query(User).filter_by(email = email).first()
         return user
 
+    @classmethod
+    def by_username(cls, dbsession, username):
+        user = dbsession.query(User).filter_by(username=username).first()
+        return user
+
 
 class AuthLog(Base):
     """

@@ -1,12 +1,11 @@
-from {{cookiecutter.app_name}}.forms import BaseForm, strip_filter
+from wtforms import Form
 from wtforms import StringField, PasswordField, validators
 
 
-class LoginForm(BaseForm):
+class LoginForm(Form):
     username = StringField(
         "Username",
-        validators=[validators.DataRequired()],
-        filters=[strip_filter]
+        validators=[validators.DataRequired()]
     )
     password = PasswordField(
         "Password",
@@ -14,7 +13,7 @@ class LoginForm(BaseForm):
     )
 
 
-class RegistrationForm(BaseForm):
+class RegistrationForm(Form):
     username = StringField(
         "Username",
         validators=[validators.DataRequired(),
@@ -24,8 +23,7 @@ class RegistrationForm(BaseForm):
         "Email",
         validators=[validators.DataRequired(),
                     validators.Email(message="invalid email address"),
-                    validators.Length(min=6, max=40)],
-        filters=[strip_filter]
+                    validators.Length(min=6, max=40)]
     )
     password = PasswordField(
         "Password",

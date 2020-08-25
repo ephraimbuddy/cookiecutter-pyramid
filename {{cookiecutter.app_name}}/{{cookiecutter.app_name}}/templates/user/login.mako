@@ -1,1 +1,1 @@
-<%inherit file="layout.mako"/>
+<%inherit file="{{cookiecutter.app_name}}:templates/layout.mako"/>

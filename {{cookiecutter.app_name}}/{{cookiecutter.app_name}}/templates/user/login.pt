@@ -1,1 +1,1 @@
-<div metal:use-macro="load: layout.pt">
+<div metal:use-macro="load: templates/layout.pt">

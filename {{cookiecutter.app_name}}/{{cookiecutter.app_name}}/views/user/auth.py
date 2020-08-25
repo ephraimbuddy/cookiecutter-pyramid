@@ -23,9 +23,7 @@ def register(request):
         user = User(
             username=form.username.data,
             email=form.email.data,
-            password=form.password.data,
-            first_name=form.first_name.data,
-            last_name=form.last_name.data,
+            password=form.password.data
         )
         request.dbsession.add(user)
 
@@ -35,7 +33,7 @@ def register(request):
 
 
 @view_config(route_name="login", renderer='{{ cookiecutter.app_name }}:templates/user/login.{{ "pt" if "chameleon" == cookiecutter.template_language else cookiecutter.template_language }}')
-def sign_in(request):
+def login(request):
     if request.user:
         request.session.flash("info; You're already signed in")
         return HTTPFound(location=request.route_url('home'))
@@ -62,8 +60,8 @@ def sign_in(request):
                 error_cls=error_cls, title="User Login")
 
 
-@view_config(route_name="signout", renderer="string")
-def signout(request):
+@view_config(route_name="logout", renderer="string")
+def logout(request):
     headers = forget(request)
     request.session.invalidate()
     return HTTPFound(location='/', headers=headers)

@@ -3,7 +3,7 @@ from pyramid.security import remember
 
 
 def remember_req(request, user, event='L'):
-    ip_addr = request.client_addr
+    ip_addr = request.remote_addr
     record = AuthLog(user_id=user.id,
                      ip_addr=ip_addr,
                      event=event)
