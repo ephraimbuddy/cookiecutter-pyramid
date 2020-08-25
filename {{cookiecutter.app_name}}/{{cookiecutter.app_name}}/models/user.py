@@ -50,8 +50,8 @@ class User(Base):
     username = Column(String(100), nullable=False)
     first_name = Column(String(100))
     last_name = Column(String(100))
-    email = Column(String(100), nullable=False)
-    password = Column(UnicodeText, nullable=False)
+    email = Column(String(100), unique=True, nullable=False)
+    password = Column(UnicodeText, unique=True, nullable=False)
 
     def __init__(self,
                  username: str,
