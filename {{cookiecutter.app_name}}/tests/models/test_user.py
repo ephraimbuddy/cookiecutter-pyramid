@@ -1,8 +1,7 @@
 import unittest
-from datetime import datetime
 
 import transaction
-from {{cookiecutter.app_name}}.models.user import User, Group, AuthLog
+from {{cookiecutter.app_name}}.models.user import User, Group
 from pyramid import testing
 
 
@@ -89,25 +88,3 @@ class TestUser(BaseTest):
         group = self.create_group(name='admin', description='Admin')
         user.groups.append(group)
         assert group.name == user.groups[0].name
-
-
-class TestAuthlog(BaseTest):
-
-    def test_can_create_authlog(self):
-        user = self.create_user(username='foo',
-                                email="foo@bar.com",
-                                password='testpassword')
-        log = AuthLog(
-            user = user,
-            time = datetime(2020, 8, 23),
-            ip_addr = "Ip-address"
-        )
-        self.session.add(log)
-        self.session.flush()
-        assert log.event == 'L'
-
-
-
-
-
-

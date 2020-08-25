@@ -1,8 +1,8 @@
 <%inherit file="{{cookiecutter.app_name}}:templates/layout.mako"/>
 <div class="content">
+    <div class="form-wrap">
     <h1> Registeration </h1>
             <form action="${request.route_url('registration')}" method="post" id="register">
-            ${msg}
 
              <input type="hidden" name="csrf_token" value="${get_csrf_token()}">
 
@@ -30,8 +30,9 @@
                 %endfor
             </div>
                 <div class="form-group">
-            <button type="submit" id="registerBtn" class="btn btn-success btn-lg">Register</button>
+            <button type="submit" id="registerBtn" class="btn btn-primary btn-lg">Register</button>
                     </div>
 
         </form>
+       </div>
  </div>

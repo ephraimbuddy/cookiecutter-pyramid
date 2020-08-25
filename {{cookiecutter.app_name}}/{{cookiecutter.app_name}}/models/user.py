@@ -50,9 +50,8 @@ class User(Base):
     username = Column(String(100), nullable=False)
     first_name = Column(String(100))
     last_name = Column(String(100))
-    email = Column(String(100), unique=True, index=True, nullable=False)
+    email = Column(String(100), nullable=False)
     password = Column(UnicodeText, nullable=False)
-    authlog = relationship('AuthLog', back_populates='user', cascade='all, delete-orphan')
 
     def __init__(self,
                  username: str,
@@ -100,24 +99,6 @@ class User(Base):
     def by_username(cls, dbsession, username):
         user = dbsession.query(User).filter_by(username=username).first()
         return user
-
-
-class AuthLog(Base):
-    """
-    Used to log user authentications
-    event:
-      L - Login
-      R - Register
-      P - Password
-      F - Forgot
-    """
-    __tablename__ = 'auth_log'
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey(User.id), index=True)
-    user = relationship(User, back_populates='authlog')
-    time = Column(DateTime(), default=func.now())
-    ip_addr = Column(String(39), nullable=False)
-    event = Column(Enum('L', 'R', 'P', 'F', name='event'), default='L')
 
 
 class UserFactory(object):

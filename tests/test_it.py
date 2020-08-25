@@ -33,8 +33,6 @@ project_files = [
     '/myapp/templates/mytemplate.template_extension',
     '/myapp/templates/user/login.template_extension',
     '/myapp/templates/user/registration.template_extension',
-    '/myapp/utils/__init__.py',
-    '/myapp/utils/util.py',
     '/myapp/views/__init__.py',
     '/myapp/views/default.py',
     '/myapp/views/notfound.py',

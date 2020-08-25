@@ -1,1 +1,29 @@
 <div metal:use-macro="load: templates/layout.pt">
+
+<div metal:fill-slot="content">
+    <div class="form-wrap">
+    <h1> Login </h1>
+         <form  method="post" class="form-horizontal" id="signIn">
+            <input type="hidden" name="csrf_token" value="${get_csrf_token()}">
+            ${message}
+            <div class="form-group">
+                <label for="username">Username</label>
+                ${form.username(class_='form-control')}
+                <div tal:repeat="error form.username.errors" tal:content="error" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                ${form.password(class_='form-control')}
+                <div tal:repeat="error form.Password.errors" tal:content="error" class="text-danger" />
+            </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+            <button type="submit" class="btn btn-primary">Log In</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
