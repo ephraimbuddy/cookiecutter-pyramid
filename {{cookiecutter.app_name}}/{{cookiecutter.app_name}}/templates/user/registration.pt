@@ -1,5 +1,6 @@
 <div metal:use-macro="load: {{cookiecutter.app_name}}:templates/layout.pt">
 <div metal:fill-slot="content">
+    <div class="content">
     <div class="form-wrap">
     <h1> Registration </h1>
      <form action="${request.route_url('registration')}" method="post" id="register">
@@ -33,6 +34,7 @@
                     </div>
 
         </form>
+        </div>
         </div>
 </div>
 </div>

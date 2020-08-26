@@ -5,7 +5,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from {{cookiecutter.app_name}}.models.user import User
 
 
-@view_config(route_name='home', renderer='{{ cookiecutter.app_name }}:templates/mytemplate.{{ "pt" if "chameleon" == cookiecutter.template_language else cookiecutter.template_language }}')
+@view_config(route_name='home', renderer='{{ cookiecutter.app_name }}:templates/home.{{ "pt" if "chameleon" == cookiecutter.template_language else cookiecutter.template_language }}')
 def home(request):
     try:
         user = request.dbsession.query(User).filter_by(id=1).one()
