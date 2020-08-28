@@ -1,9 +1,8 @@
 {% raw %}
 {% extends "{% endraw %}{{cookiecutter.app_name}}{% raw %}:templates/layout.jinja2" %}
 {% block content %}
-    <div class="content">
-    <div class="form-wrap">
-    <h1> Registration </h1>
+    <div class="login-wrap">
+    <h1> Create Account </h1>
     <form action="{{request.route_url('registration')}}" method="post" id="register">
              <input type="hidden" name="csrf_token" value="{{get_csrf_token()}}">
             <div class="form-group">
@@ -34,8 +33,6 @@
                     </div>
 
         </form>
-        </div>
      </div>
  {% endblock content %}
  {% endraw %}
- 

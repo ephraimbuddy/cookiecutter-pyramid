@@ -1,17 +1,16 @@
 {% raw %}
 {% extends "{% endraw %}{{cookiecutter.app_name}}{% raw %}:templates/layout.jinja2" %}
 {% block content %}
-<div class="content">
-    <div class="form-wrap">
-    <h1>Log In</h1>
-         <form  method="post" id="signIn">
+<div class="login-wrap">
+        <h1> Login </h1>
+         <form  method="post" class="form-horizontal" id="signIn">
             <input type="hidden" name="csrf_token" value="{{get_csrf_token()}}">
             <span class="text-danger">{{message}}</span>
             <div class="form-group">
                 <label for="username">Username</label>
                 {{form.username(class_='form-control')}}
-                {% for error in form.username.errors %}
-                    <div class="text-danger">${error}</div>
+                {%for error in form.username.errors %}
+                    <div class="text-danger">{{error}}</div>
                 {% endfor %}
             </div>
 
@@ -25,9 +24,8 @@
 
                 <div class="form-group">
             <button type="submit" class="btn btn-primary">Log In</button>
-                    </div>
-        </form>
+                </div>
+         </form>
     </div>
- </div>
 {% endblock content%}
 {% endraw %}
