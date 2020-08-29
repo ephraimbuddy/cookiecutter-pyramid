@@ -4,7 +4,6 @@
         <h1> Login </h1>
          <form  method="post" class="form-horizontal" id="signIn">
             <input type="hidden" name="csrf_token" value="${get_csrf_token()}">
-            <span class="text-danger">${message}</span>
             <div class="form-group">
                 <label for="username">Username</label>
                 ${form.username(class_='form-control')}

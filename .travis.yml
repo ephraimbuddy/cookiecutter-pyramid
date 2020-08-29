@@ -23,3 +23,7 @@ install:
 
 script:
   - travis_retry tox
+
+notifications:
+  email:
+    - splendidzigy24@gmail.com
