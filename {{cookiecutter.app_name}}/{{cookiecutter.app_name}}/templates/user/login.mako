@@ -1,10 +1,10 @@
 <%inherit file="{{cookiecutter.app_name}}:templates/layout.mako"/>
 
-<div class="content">
-    <div class="form-wrap">
+    <div class="login-wrap">
+        <h1> Login </h1>
          <form  method="post" class="form-horizontal" id="signIn">
             <input type="hidden" name="csrf_token" value="${get_csrf_token()}">
-            ${message}
+            <span class="text-danger">${message}</span>
             <div class="form-group">
                 <label for="username">Username</label>
                 ${form.username(class_='form-control')}
@@ -20,13 +20,10 @@
                     <div class="text-danger">${error}</div>
                 %endfor
             </div>
-            </div>
 
-            <div class="col-md-12">
                 <div class="form-group">
             <button type="submit" class="btn btn-primary">Log In</button>
                     </div>
-            </div>
-        </form>
+
+         </form>
     </div>
-</div>
