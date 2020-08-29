@@ -23,10 +23,3 @@ install:
 
 script:
   - travis_retry tox
-
-notifications:
-  email:
-    - pyramid-checkins@lists.repoze.org
-  irc:
-    channels:
-      - "chat.freenode.net#pyramid"
