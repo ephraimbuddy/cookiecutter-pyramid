@@ -1,18 +1,30 @@
-============================
-pyramid-cookiecutter-starter
+About This Fork🍴
+=================
+This is a fork of https://github.com/Pylons/pyramid-cookiecutter-starter with decisions made on the
+type of persistent backend and url mapping scheme to use, with session management, authentication
+and authorization features.
+
+cookiecutter-pyramid
 ============================
 
-.. image:: https://travis-ci.org/Pylons/pyramid-cookiecutter-starter.png?branch=master
-    :target: https://travis-ci.org/Pylons/pyramid-cookiecutter-starter
-    :alt: Master Travis CI Status
+.. image:: https://travis-ci.org/ephraimbuddy/cookiecutter-pyramid.png?branch=dev
+    :target: https://travis-ci.org/ephraimbuddy/cookiecutter-pyramid
+    :alt: Dev Travis CI Status
 
 A Cookiecutter (project template) for creating a Pyramid starter project.
 
 Customizable options upon install include choice of:
 
 *   template language (Jinja2, Chameleon, or Mako)
-*   persistent backend (none, SQLAlchemy with SQLite, or ZODB)
-*   mapping of URLs to routes (if selected persistent backend is "none" or "sqlalchemy" then URL dispatch, and if "zodb" then traversal)
+
+Decisions made for you:
+
+* Session management with `pyramid_nacl_session <https://docs.pylonsproject.org/projects/pyramid-nacl-session/en/latest/index.html>`_
+* SQLAlchemy as the ORM
+* WTForms as form library
+* Bootstrap 4
+* Automatic csrf protection
+* Inbuilt Authentication and Authorization mechanism
 
 Requirements
 ------------
@@ -25,8 +37,8 @@ Versions
 
 This cookiecutter has several branches to support new features in Pyramid or avoid incompatibilities.
 
-*   ``latest`` aligns with the latest stable release of Pyramid, and is the default branch on GitHub.
-*   ``master`` aligns with the ``master`` branch of Pyramid, and is where development takes place.
+*   ``master`` aligns with the latest stable release of Pyramid, and is the default branch on GitHub.
+*   ``dev`` aligns with the ``master`` branch of Pyramid, and is where development takes place.
 *   ``x.y-branch`` aligns with the ``x.y-branch`` branch of Pyramid.
 
 
@@ -37,13 +49,13 @@ Usage
 
     .. code-block:: bash
 
-        $ cookiecutter gh:Pylons/pyramid-cookiecutter-starter
+        $ cookiecutter gh:ephraimbuddy/cookiecutter-pyramid
 
     Optionally append a specific branch checkout to the command:
 
     .. code-block:: bash
 
-        $ cookiecutter gh:Pylons/pyramid-cookiecutter-starter --checkout master
+        $ cookiecutter gh:ephraimbuddy/cookiecutter-pyramid --checkout dev
 
 #.  Create a virtual environment, upgrade packaging tools, and install your new project and its dependencies.
     These steps are output by the cookiecutter and are written to the file in ``<my_project>/README.txt``, and are slightly different for Windows.
@@ -54,21 +66,30 @@ Usage
         $ cd <my_project>
         # Create a Python virtual environment.
         $ python3 -m venv env
+        # Activate the virtual environment.
+        $ source env/bin/activate
+        # For windows, activate with:
+          env\Scripts\activate
         # Upgrade packaging tools.
-        $ env/bin/pip install --upgrade pip setuptools
+        $ pip install --upgrade pip setuptools
         # Install the project in editable mode with its testing requirements.
-        $ env/bin/pip install -e ".[testing]"
+        $ pip install -e ".[testing]"
+        # Generate your first revision
+        $ alembic -c development.ini revision --autogenerate -m "init"
+        # Upgrade the revision
+        $ alembic -c development.ini upgrade head
+        # Load default data into the database using a script.
+        $ initdb development.ini
 
-#.  If you selected ``sqlalchemy`` as a backend, there will be additional steps in the output and ``README.txt``.
 
 #.  Run your project's tests.
 
     .. code-block:: bash
 
-        $ env/bin/pytest
+        $ pytest
 
 #.  Run your project.
 
     .. code-block:: bash
 
-        $ env/bin/pserve development.ini
+        $ pserve development.ini

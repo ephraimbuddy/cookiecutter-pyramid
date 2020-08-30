@@ -12,32 +12,41 @@ Getting Started
 
     python3 -m venv env
 
+- Activate your virtual env
+
+  For linux based:
+
+  $ source env/bin/activate
+
+  For windows, activate with:
+      env\Scripts\activate
+
 - Upgrade packaging tools.
 
-    env/bin/pip install --upgrade pip setuptools
+    pip install --upgrade pip setuptools
 
 - Install the project in editable mode with its testing requirements.
 
-    env/bin/pip install -e ".[testing]"
+    pip install -e ".[testing]"
 
 - Initialize and upgrade the database using Alembic.
 
     - Generate your first revision.
 
-        env/bin/alembic -c development.ini revision --autogenerate -m "init"
+       alembic -c development.ini revision --autogenerate -m "init"
 
     - Upgrade to that revision.
 
-        env/bin/alembic -c development.ini upgrade head
+       alembic -c development.ini upgrade head
 
 - Load default data into the database using a script.
 
-    env/bin/initialize_{{ cookiecutter.app_name }}_db development.ini
+    initdb development.ini
 
 - Run your project's tests.
 
-    env/bin/pytest
+    pytest
 
 - Run your project.
 
-    env/bin/pserve development.ini
+    pserve development.ini
