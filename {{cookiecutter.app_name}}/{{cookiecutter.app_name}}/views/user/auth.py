@@ -31,7 +31,7 @@ def register(request):
             password=form.password.data
         )
         request.dbsession.add(user)
-
+        request.dbsession.flush()
         headers = remember(request, user.id)
         return HTTPFound(location=request.route_url('home'), headers=headers)
     return dict(form=form, title="Account Registration")
