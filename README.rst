@@ -4,6 +4,7 @@ This is a fork of https://github.com/Pylons/pyramid-cookiecutter-starter with de
 type of persistent backend and url mapping scheme to use, with session management, authentication
 and authorization features.
 
+============================
 cookiecutter-pyramid
 ============================
 
