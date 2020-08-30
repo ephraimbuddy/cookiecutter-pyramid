@@ -83,13 +83,7 @@ def test_project(cookies, venv, capfd, template):
 
     out, err = capfd.readouterr()
 
-    if WIN:
-        assert 'Scripts\\pserve' in out
-        for idx, project_file in enumerate(project_files):
-            project_files[idx] = project_file.replace('/', '\\')
-        project_files.sort()
-    else:
-        assert 'bin/pserve' in out
+    assert 'myapp/README.txt' in out
 
     files = build_files_list(str(result.project))
     files.sort()
