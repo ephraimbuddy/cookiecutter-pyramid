@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="username">Username</label>
                 ${form.username(class_='form-control')}
-                <ul tal:condition="form.username.errors">
+                <ul tal:condition="form.username.errors" class='list-unstyled'>
                 <li tal:repeat="error form.username.errors" tal:content="error" class="text-danger" />
                 </ul>
             </div>
