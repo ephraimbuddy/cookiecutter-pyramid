@@ -4,17 +4,12 @@ import sys
 from pyramid.paster import bootstrap, setup_logging
 from sqlalchemy.exc import OperationalError
 
-from .. import models
-
 
 def setup_models(dbsession):
     """
     Add or update models / fixtures in the database.
 
     """
-    model = models.user.User(username='foobar', email='foo@bar.com',
-                             password='mypass')
-    dbsession.add(model)
 
 
 def parse_args(argv):

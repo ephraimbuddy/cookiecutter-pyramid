@@ -60,7 +60,7 @@ setup(
             'main = {{ cookiecutter.app_name }}:main',
         ],
         'console_scripts': [
-            'initialize_{{ cookiecutter.app_name }}_db={{ cookiecutter.app_name }}.scripts.initialize_db:main',
+            'initdb={{ cookiecutter.app_name }}.scripts.initialize_db:main',
         ],
     },
 )
