@@ -5,17 +5,20 @@
         <h1> Login </h1>
          <form  method="post" class="form-horizontal" id="signIn">
             <input type="hidden" name="csrf_token" value="${get_csrf_token()}">
-            <span class="text-danger">${message}</span>
             <div class="form-group">
                 <label for="username">Username</label>
                 ${form.username(class_='form-control')}
-                <div tal:condition="form.username.errors" class="text-danger">${error}</div>
+                <ul tal:condition="form.username.errors">
+                <li tal:repeat="error form.username.errors" tal:content="error" class="text-danger" />
+                </ul>
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
                 ${form.password(class_='form-control')}
-                <div tal:condition="form.password.errors" class="text-danger">${error}</div>
+               <ul tal:condition="form.password.errors" class="list-unstyled">
+                <li tal:repeat="error form.password.errors" tal:content="error" class="text-danger" />
+                </ul>
             </div>
 
                 <div class="form-group">

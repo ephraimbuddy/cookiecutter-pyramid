@@ -12,8 +12,7 @@ from sqlalchemy import (
     Table,
     Enum
 )
-from sqlalchemy.types import String, DateTime, UnicodeText
-from sqlalchemy.sql import func
+from sqlalchemy.types import String, UnicodeText
 from sqlalchemy.orm import relationship
 
 from {{cookiecutter.app_name}}.models.meta import Base
@@ -47,11 +46,11 @@ class User(Base):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     groups = relationship("Group", secondary=user_group, back_populates="users")
-    username = Column(String(100), nullable=False)
+    username = Column(String(100), unique=True, nullable=False)
     first_name = Column(String(100))
     last_name = Column(String(100))
     email = Column(String(100), unique=True, nullable=False)
-    password = Column(UnicodeText, unique=True, nullable=False)
+    password = Column(UnicodeText, nullable=False)
 
     def __init__(self,
                  username: str,
@@ -92,7 +91,7 @@ class User(Base):
 
     @classmethod
     def by_email(cls, dbsession, email):
-        user = dbsession.query(User).filter_by(email = email).first()
+        user = dbsession.query(User).filter_by(email=email).first()
         return user
 
     @classmethod

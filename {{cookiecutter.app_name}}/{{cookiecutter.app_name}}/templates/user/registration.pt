@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 ${form.email(class_='form-control', id='email')}
-                <ul tal:condition="form.email.errors">
+                <ul tal:condition="form.email.errors" class="list-unstyled">
                 <li tal:repeat="error form.email.errors" tal:content="error" class="text-danger" />
                 </ul>
             </div>
@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label for="username">Username</label>
                 ${form.username(class_='form-control', id="username")}
-                <ul tal:condition="form.username.errors">
+                <ul tal:condition="form.username.errors" class="list-unstyled">
                 <li tal:repeat="error form.username.errors" tal:content="error" class="text-danger" />
                 </ul>
             </div>
@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 ${form.password(class_='form-control',id='password')}
-                <ul tal:condition="form.password.errors">
+                <ul tal:condition="form.password.errors" class="list-unstyled">
                 <li tal:repeat="error form.password.errors" tal:content="error" class="text-danger" />
                 </ul>
             </div>

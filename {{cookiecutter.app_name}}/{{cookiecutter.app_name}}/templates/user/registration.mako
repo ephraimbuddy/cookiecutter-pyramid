@@ -9,7 +9,7 @@
                 <label for="email">Email</label>
                 ${form.email(class_='form-control', id='email')}
                 %for error in form.email.errors:
-                    <div class="error">${error}</div>
+                    <div class="text-danger">${error}</div>
                 %endfor
             </div>
 
@@ -17,7 +17,7 @@
                 <label for="username">Username</label>
                 ${form.username(class_='form-control', id="username")}
                 %for error in form.username.errors:
-                    <div class="error">${error}</div>
+                    <div class="text-danger">${error}</div>
                 %endfor
             </div>
 
@@ -25,7 +25,7 @@
                 <label for="password">Password</label>
                 ${form.password(class_='form-control',id='password')}
                 %for error in form.password.errors:
-                    <div class="error">${error}</div>
+                    <div class="text-danger">${error}</div>
                 %endfor
             </div>
                 <div class="form-group">
